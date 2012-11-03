@@ -40,12 +40,8 @@ function table(step)
     keys = awful.util.table.join(keys,
       awful.key(mmodifiers, v, function ()
         move(v, step or 18)
-      end)
-    )
-  end
+      end),
 
-  for k, v in ipairs(directions) do
-    keys = awful.util.table.join(keys,
       awful.key(rmodifiers, v, function ()
         resize(v, step or 18)
       end)
