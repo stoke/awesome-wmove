@@ -2,9 +2,7 @@ local awful = require('awful')
 local client = client
 local ipairs = ipairs
 
-module("wmove")
-
-function move(direction, step)
+local function move(direction, step)
   local focused = client.focus
   local geo = focused:geometry()
 
@@ -17,7 +15,7 @@ function move(direction, step)
   focused:geometry(geo)
 end
 
-function resize(direction, step)
+local function resize(direction, step)
   local focused = client.focus
   local geo = focused:geometry()
 
@@ -30,7 +28,7 @@ function resize(direction, step)
   focused:geometry(geo)
 end
 
-function table(step)
+local function table(step)
   local mmodifiers = { "Mod4", "Control" }
   local rmodifiers = { "Mod4", "Mod1" }
   local directions = { "Up", "Down", "Right", "Left" }
@@ -51,3 +49,6 @@ function table(step)
   return keys
 end
 
+return {
+  table = table
+}
